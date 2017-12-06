@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
+// ********** array **********
 /*
-array
 array就是数组，它的定义方式如下：
 var arr [n]type
 
