@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"strings"
@@ -9,6 +10,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", sayHello) // 设置访问的路由
+	http.HandleFunc("/login", login)
 
 	log.Println("Starting server...")
 	err := http.ListenAndServe(":8888", nil) // 设置监听的端口
@@ -16,6 +18,21 @@ func main() {
 		log.Fatal("ListenAndServe: ", err)
 	}
 
+}
+
+func login(w http.ResponseWriter, r *http.Request) {
+	log.Printf("method", r.Method) // 获取请求的方法
+	if r.Method == `GET` {
+		t, err := template.ParseFiles("login.gtpl")
+		if err != nil {
+			log.Fatalf("Parse error: ", err)
+		}
+		log.Println(t.Execute(w, nil))
+	} else {
+		r.ParseForm()
+		log.Println("username: ", r.Form["username"])
+		log.Println("password: ", r.Form["password"])
+	}
 }
 
 func sayHello(w http.ResponseWriter, r *http.Request) {
