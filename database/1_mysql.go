@@ -17,6 +17,8 @@ stmt.Exec()函数用来执行stmt准备好的SQL语句
 
 */
 
+// https://github.com/go-sql-driver/mysql
+
 import (
 	"database/sql"
 	"fmt"
