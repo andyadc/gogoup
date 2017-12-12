@@ -16,7 +16,7 @@ type Recurlyservers struct {
 
 type server struct {
 	XMLName    xml.Name `xml:"server"`
-	ServerName string   `xml:serverName`
+	ServerName string   `xml:"serverName"`
 	ServerIP   string   `xml:"serverIP"`
 }
 
