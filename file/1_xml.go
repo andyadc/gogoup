@@ -21,6 +21,14 @@ type server struct {
 }
 
 func main() {
+	readXML()
+}
+
+func writeXML() {
+
+}
+
+func readXML() {
 	file, err := os.Open("server.xml")
 	if err != nil {
 		fmt.Printf("error: %v", err)
