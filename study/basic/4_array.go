@@ -38,4 +38,28 @@ func main() {
 	easyArray := [2][4]int{{1, 2, 3, 4}, {5, 6, 7, 8}}
 	fmt.Println(doubleArray)
 	fmt.Println(easyArray)
+
+	array_point()
+	array_copy()
+}
+
+func array_point() {
+	// 声明包含5个元素的指向整数的数组
+	// 用整型指针初始化索引为0和3的数组元素
+	array := [5]*int{0: new(int), 3: new(int)}
+
+	// 为索引为0的元素赋值
+	*array[0] = 10
+	fmt.Println(array)
+}
+
+// 把同样类型的一个数组赋值给另外一个数组
+func array_copy() {
+	var array1 [5]string
+	array2 := [5]string{"red", "orange", "yellow"}
+
+	array1 = array2
+
+	fmt.Println(array1)
+	fmt.Println(array2)
 }
