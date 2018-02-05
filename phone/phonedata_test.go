@@ -43,7 +43,7 @@ func TestFindPhone1(t *testing.T) {
 func TestFindPhone2(t *testing.T) {
 
 	_, err := Find("1300")
-	if err == nil {
+	if err != nil {
 		t.Fatal("错误的结果")
 	}
 	t.Log(err)
@@ -59,17 +59,18 @@ func TestFindPhone3(t *testing.T) {
 
 func TestFindPhone4(t *testing.T) {
 
-	_, err := Find("13701937827")
-	if err == nil {
+	pr, err := Find("13701937827")
+	if err != nil {
 		t.Fatal("错误的结果")
 	}
 	t.Log(err)
+	fmt.Println(pr)
 }
 
 func TestFindPhone5(t *testing.T) {
 
 	_, err := Find("afsd32323")
-	if err == nil {
+	if err != nil {
 		t.Fatal("错误的结果")
 	}
 	t.Log(err)
