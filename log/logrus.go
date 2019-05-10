@@ -13,7 +13,7 @@ func init() {
 	log.SetOutput(os.Stdout)
 
 	// 只记录严重或以上警告
-	log.SetLevel(log.WarnLevel)
+	log.SetLevel(log.InfoLevel)
 }
 
 func main() {
